@@ -36,13 +36,19 @@
 - VIRTUOSO
 
 ## Procedimentos
-- Instalação do Debian com debootstrap:
+- **Instalação do Debian com debootstrap**:
   ```bash
   sudo deboostrap stable /debian http://deb.debian.org/debian
   ```
-- Trabalhando com Namespaces:
+- **Trabalhando com Namespaces**:
   ```bash
   sudo unshare --mount --uts --ipc --map-root-user --user --fork --net chroot ./debian bash
+  ```
+- **Montando proc/sysfs/tmpfs**:
+  ```bash
+  mount -t proc none /proc
+  mount -t sysfs none /sys
+  mount -t tmpfs none /tmp
   ```
 
 ## Recursos Adicionais
@@ -51,6 +57,7 @@
 - **Trabalhando com CGroups**:
   - Instale as ferramentas cgroup-tools
   - Criar recursos isolados:
+  * Comando abaixo separa um cgroup para o diretorio /darkstar
     ```bash
     sudo cgcreate -g cpu,memory:/darkstar
     ```
@@ -58,5 +65,22 @@
     ```bash
     sudo cgclassify -g cpu,memory:darkstar <PID>
     ```
+  - Definir limite de CPU:
+    ```bash
+    echo "1000" | sudo tee /sys/fs/cgroup/darkstar/cpu.max
+    ```
+    ou
+    ```bash
+    sudo cgset -r cpu.max=1000 darkstar
+    ```
+  - Definir limite de memória:
+    ```bash
+    echo "100" | sudo tee /sys/fs/cgroup/darkstar/memory.max
+    ```
+    ou
+    ```bash
+    sudo cgset -r memory.max=100 darkstar
+    ```
+
 
 

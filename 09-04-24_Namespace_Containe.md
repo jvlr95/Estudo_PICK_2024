@@ -81,6 +81,3 @@
     ```bash
     sudo cgset -r memory.max=100 darkstar
     ```
-
-
-

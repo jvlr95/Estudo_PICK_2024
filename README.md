@@ -25,5 +25,3 @@ Contribuições são bem-vindas! Se você tem alguma correção ou adição a fa
 ## Agradecimentos
 
 Agradecemos à Linux Tips por oferecer este programa intensivo e proporcionar uma experiência enriquecedora para os estudantes interessados em containers, Kubernetes e Linux.
-
-

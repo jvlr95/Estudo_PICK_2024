@@ -1,5 +1,5 @@
 # Distroless 
-*Subir containers sem alguma distribuição alocada, apenas a linguagem
+* Subir containers sem alguma distribuição alocada, apenas a linguagem
 ** no-cache-dir --> não armazena arquivos
 ** Dockerfile aplicacao giropops-senhas
 ---
@@ -31,4 +31,5 @@ CMD ["flask", "run","--host=0.0.0.0"]
 	```bash
 	docker container logs giropops-senhas
 	```
+
 
